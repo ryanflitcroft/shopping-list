@@ -1,20 +1,24 @@
 body {
 
     --color1: #3d3d3d;
-    --color2: #d3d3d3;
-    --color3: ;
+    --color2: ;
+    --color3: #d3d3d3;
     --color4: ;
     --color5: ;
 
     color: var(--color1);
+    font-family: 'sketchnote-square', sans-serif;
 }
 
 h1 {
     letter-spacing: 0.15em;
+    margin: 1em 0 0.5em;
+    font-family: 'steinzeit-fill-in', sans-serif;
 }
 
 header {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -43,17 +47,27 @@ input {
     text-align: center;
     padding: 0.25em;
     cursor: pointer;
+    font-family: 'sketchnote-square', sans-serif;
 }
 
 button {
     margin: 1em;
     cursor: pointer;
+    font-family: 'sketchnote-square', sans-serif;
 }
 
 @media only screen and (min-width: 500px) {
-
-    section {
-        margin: 5em 1em;
+    h1 {
+        margin: 1em;
     }
     
+    main {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    section {
+        margin: 0 2em;
+    }
 }

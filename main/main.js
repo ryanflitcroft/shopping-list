@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { buyItem, checkAuth, createItem, deleteAllItems, getItems, logout, unbuyItem } from '../fetch-utils.js';
 import { renderItem } from '../render-utils.js';
 
@@ -8,8 +7,6 @@ const logoutButton = document.getElementById('logout');
 const listForm = document.querySelector('#list-form');
 const itemList = document.querySelector('#item-list');
 const deleteButton = document.querySelector('#delete-button');
-
-// console.log(listForm, itemList, deleteButton);
 
 window.addEventListener('load', async() => {
     await displayListItems();
@@ -24,7 +21,8 @@ listForm.addEventListener('submit', async(e) => {
     
     const data = new FormData(listForm);
     const name = data.get('name');
-    const quantity = data.get('quantity');
+    let quantity = data.get('quantity');
+    if (!quantity) quantity = 1;
 
     const nameInput = document.querySelector('input');
     nameInput.focus();
@@ -36,7 +34,6 @@ listForm.addEventListener('submit', async(e) => {
         quantity
     };
 
-    // console.log(item);
     await createItem(item);
     displayListItems();
 });
@@ -44,13 +41,11 @@ listForm.addEventListener('submit', async(e) => {
 deleteButton.addEventListener('click', async() => {
     await deleteAllItems();
     await displayListItems();
-    console.log(await getItems());
 });
 
 async function displayListItems() {
     itemList.textContent = '';
     let items = await getItems();
-    // console.log(items);
 
     if (items.length) {
         deleteButton.classList.remove('hidden');

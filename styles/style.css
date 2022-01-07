@@ -1,17 +1,49 @@
 body {
 
     --color1: #3d3d3d;
-    --color2: #d3d3d3d3;
+    --color2: #8d8d8d;
     --color3: ;
     --color4: ;
     --color5: ;
 
     color: var(--color1);
+    font-family: 'sketchnote-square', sans-serif;
 }
 
-main {
-    width: 100%;
-    height: 100%;
+h1 {
+    font-size: 2em;
+    margin: 0.25em 0 1em;
+    font-family: 'steinzeit-fill-in', sans-serif;
+}
+
+header button {
+    all: unset;
+    align-self: flex-end;
+    margin: 0.5em 1em;
+    cursor: pointer;
+}
+
+span {
+    cursor: pointer;
+    margin: 0.25em;
+    text-transform: capitalize;
+    font-family: 'flood-std', sans-serif;
+}
+
+span:hover {
+    font-size: 1.15em;
+}
+
+#item-list {
+    width: 250px;
+    height: 200px;
+    overflow-y: scroll;
+    text-align: center;
+    margin: 1.5em;
+    padding: 0.5em;
+    background: whitesmoke;
+    box-shadow: 0.25em 0.25em 0.5em var(--color1),
+                -0.15em -0.15em 0.25em var(--color2);
 }
 
 .hidden {
@@ -20,4 +52,44 @@ main {
 
 .purchased {
     color: var(--color2)
+}
+
+@media only screen and (min-width: 500px) {
+    
+    h1 {
+        font-size: 3em;
+    }
+    main {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    section {
+        margin: 0 2em;
+    }
+
+    #item-list {
+        width: 400px;
+    }
+}
+
+@media only screen and (min-height: 650px) {
+    #item-list {
+        height: 250px;
+    }
+}
+
+@media only screen and (min-height: 565px) {
+    body {
+        overflow-y: hidden;
+    }
+
+    h1 {
+        margin: 0.25em;
+    }
+
+    #delete-button {
+        margin: 0.25em;
+    }
 }

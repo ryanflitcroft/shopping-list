@@ -15,22 +15,23 @@
 
 <body>
   <header>
-
+    <button id="logout">Logout</button>
+    <h1>Shopping List</h1>
   </header>
-  <button id="logout">Logout</button>
+
   <main>
+    <section id="item-list">
+
+    </section>
+    
     <section>
       <form id="list-form">
         <label for="name">Item</label>
         <input type="text" name="name" placeholder="item" autofocus required>
         <label for="quantity">Quantity</label>
-        <input type="number" name="quantity" value="1" min="0" required>
+        <input type="number" name="quantity" placeholder="1" min="0">
         <button type="submit" form="list-form">Add Item</button>
       </form>
-    </section>
-
-    <section id="item-list">
-
     </section>
 
     <section>
