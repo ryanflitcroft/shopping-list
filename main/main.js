@@ -71,3 +71,9 @@ async function displayListItems() {
         });   
     }   
 }
+
+window.addEventListener('resize', () => {
+    if (window.innerHeight > 565) {
+        window.scrollTo(0, 0);
+    }
+});

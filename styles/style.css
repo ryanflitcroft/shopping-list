@@ -81,9 +81,6 @@ span:hover {
 }
 
 @media only screen and (min-height: 565px) {
-    body {
-        overflow-y: hidden;
-    }
 
     h1 {
         margin: 0.25em;
@@ -91,5 +88,9 @@ span:hover {
 
     #delete-button {
         margin: 0.25em;
+    }
+
+    body {
+        overflow-y: hidden;
     }
 }
