@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
-import { checkAuth, logout } from '../fetch-utils.js';
+import { checkAuth, getItems, logout } from '../fetch-utils.js';
+import { renderItem } from '../render-utils.js';
 
 checkAuth();
 
@@ -8,10 +9,10 @@ const listForm = document.querySelector('#list-form');
 const itemList = document.querySelector('#item-list');
 const deleteButton = document.querySelector('#delete-button');
 
-console.log(listForm, itemList, deleteButton);
+// console.log(listForm, itemList, deleteButton);
 
-window.addEventListener('load', () => {
-
+window.addEventListener('load', async() => {
+    await displayListItems();
 });
 
 logoutButton.addEventListener('click', () => {
@@ -27,3 +28,18 @@ listForm.addEventListener('submit', (e) => {
 deleteButton.addEventListener('click', () => {
 
 });
+
+async function displayListItems() {
+    itemList.textContent = '';
+    const items = await getItems();
+    // console.log(items);
+
+    if (items.length) {
+        deleteButton.classList.remove('hidden');
+    }
+
+    for (let item of items) {
+        const listItem = renderItem(item);
+        itemList.append(listItem);
+    }
+}

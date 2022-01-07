@@ -51,13 +51,9 @@ button {
 }
 
 @media only screen and (min-width: 500px) {
-    main {
-        flex-direction: row;
-        justify-content: center;
-        align-items: flex-start;
-    }
 
     section {
         margin: 5em 1em;
     }
+    
 }

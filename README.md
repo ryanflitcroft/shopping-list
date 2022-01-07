@@ -36,8 +36,8 @@ git checkout -b workOnANewBranch
     <label for="item">Item</label>
     <input type="text" name="item" placeholder="item" required>
     <label for="quantity">Quantity</label>
-    <input type="text" name="quantity" value="1" min="0" required>
-    <button type="submit" form="list-form">
+    <input type="number" name="quantity" value="1" min="0" required>
+    <button type="submit" form="list-form">Add Item</button>
   </form>
 </section>
 ```

@@ -42,3 +42,12 @@ export async function logout() {
 function checkError({ data, error }) {
     return error ? console.error(error) : data;
 }
+
+export async function getItems() {
+    const response = await client
+        .from('list')
+        .select()
+        .order('id', { ascending: false });
+
+    return checkError(response);
+}

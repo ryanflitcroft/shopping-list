@@ -8,8 +8,8 @@
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <link rel="stylesheet" href="https://use.typekit.net/snl6pcf.css">
   <link rel="stylesheet" href="../styles/reset.css">
-  <link rel="stylesheet" href="../styles/style.css">
   <link rel="stylesheet" href="../styles/home.css">
+  <link rel="stylesheet" href="../styles/style.css">
   <title>Main</title>
 </head>
 
@@ -24,8 +24,8 @@
         <label for="item">Item</label>
         <input type="text" name="item" placeholder="item" required>
         <label for="quantity">Quantity</label>
-        <input type="text" name="quantity" value="1" min="0" required>
-        <button type="submit" form="list-form">
+        <input type="number" name="quantity" value="1" min="0" required>
+        <button type="submit" form="list-form">Add Item</button>
       </form>
     </section>
 
@@ -41,7 +41,7 @@
     </section>
 
     <section>
-      <button type="button" id="delete-button">Delete List</button>
+      <button type="button" class="hidden" id="delete-button">Delete List</button>
     </section>
   </main>
   <footer>
