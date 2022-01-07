@@ -51,3 +51,12 @@ export async function getItems() {
 
     return checkError(response);
 }
+
+export async function createItem(item) {
+    // console.log(item);
+    const response = await client
+        .from('list')
+        .insert(item);
+
+    return checkError(response);
+}

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { checkAuth, getItems, logout } from '../fetch-utils.js';
+import { checkAuth, createItem, getItems, logout } from '../fetch-utils.js';
 import { renderItem } from '../render-utils.js';
 
 checkAuth();
@@ -13,6 +13,7 @@ const deleteButton = document.querySelector('#delete-button');
 
 window.addEventListener('load', async() => {
     await displayListItems();
+    // await createItem({ name: 'item', quantity: 2 });
 });
 
 logoutButton.addEventListener('click', () => {

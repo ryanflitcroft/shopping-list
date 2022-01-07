@@ -8,8 +8,7 @@ export function renderItem(item) {
     
     itemLabel.textContent = `${item.name}`;
 
-    itemCheckbox.append(itemCheckbox, itemLabel);
-    listItem.append(itemCheckbox);
+    listItem.append(itemCheckbox, itemLabel);
 
     return listItem;
 }
