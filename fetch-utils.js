@@ -60,3 +60,21 @@ export async function createItem(item) {
 
     return checkError(response);
 }
+
+export async function buyItem(id) {
+    const response = await client
+        .from('list')
+        .update({ purchased: true })
+        .match({ id });
+        
+    return checkError(response);
+}
+
+export async function unbuyItem(id) {
+    const response = await client
+        .from('list')
+        .update({ purchased: false })
+        .match({ id });
+        
+    return checkError(response);
+}

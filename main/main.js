@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { checkAuth, createItem, getItems, logout } from '../fetch-utils.js';
+import { buyItem, checkAuth, createItem, getItems, logout, unbuyItem } from '../fetch-utils.js';
 import { renderItem } from '../render-utils.js';
 
 checkAuth();
@@ -13,17 +13,32 @@ const deleteButton = document.querySelector('#delete-button');
 
 window.addEventListener('load', async() => {
     await displayListItems();
-    // await createItem({ name: 'item', quantity: 2 });
 });
 
 logoutButton.addEventListener('click', () => {
     logout();
 });
 
-listForm.addEventListener('submit', (e) => {
+listForm.addEventListener('submit', async(e) => {
     e.preventDefault();
     
+    const data = new FormData(listForm);
+    const name = data.get('name');
+    const quantity = data.get('quantity');
+
+    const nameInput = document.querySelector('input');
+    nameInput.focus();
+
     listForm.reset();
+
+    const item = {
+        name,
+        quantity
+    };
+
+    // console.log(item);
+    await createItem(item);
+    displayListItems();
 });
 
 deleteButton.addEventListener('click', () => {
@@ -32,7 +47,7 @@ deleteButton.addEventListener('click', () => {
 
 async function displayListItems() {
     itemList.textContent = '';
-    const items = await getItems();
+    let items = await getItems();
     // console.log(items);
 
     if (items.length) {
@@ -42,5 +57,16 @@ async function displayListItems() {
     for (let item of items) {
         const listItem = renderItem(item);
         itemList.append(listItem);
-    }
+
+        
+        listItem.addEventListener('click', async() => {
+            if (!item.purchased) {
+                await buyItem(item.id);
+            } else {
+                await unbuyItem(item.id);
+            }
+            displayListItems();
+        });
+        
+    }   
 }

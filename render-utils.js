@@ -1,14 +1,14 @@
 export function renderItem(item) {
-    const listItem = document.createElement('li');
-    const itemCheckbox = document.createElement('input');
-    const itemLabel = document.createElement('label');
-    itemCheckbox.setAttribute('type', 'checkbox');
-    itemCheckbox.setAttribute('name', `${item.name}`);
-    itemLabel.setAttribute('for', `${item.name}`);
+    const listItem = document.createElement('span');
+    listItem.textContent = `${item.name} - ${item.quantity}`;
     
-    itemLabel.textContent = `${item.name}`;
+    if (item.purchased){
+        listItem.classList.add('purchased');
+    } else if (!item.purchased) {
+        listItem.classList.remove('purchased');
+    }
 
-    listItem.append(itemCheckbox, itemLabel);
+    listItem.append();
 
     return listItem;
 }

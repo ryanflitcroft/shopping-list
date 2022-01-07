@@ -21,23 +21,16 @@
   <main>
     <section>
       <form id="list-form">
-        <label for="item">Item</label>
-        <input type="text" name="item" placeholder="item" required>
+        <label for="name">Item</label>
+        <input type="text" name="name" placeholder="item" autofocus required>
         <label for="quantity">Quantity</label>
         <input type="number" name="quantity" value="1" min="0" required>
         <button type="submit" form="list-form">Add Item</button>
       </form>
     </section>
 
-    <section>
-      <ul id="item-list">
-        <!-- Elements will be created dynamically:
-        <li>
-          <input type="checkbox" name="${item.name}">
-          <label for="${item.name}">${item.name} - ${item.quantity}</label>
-        </li>
-        -->
-      </ul>
+    <section id="item-list">
+
     </section>
 
     <section>
