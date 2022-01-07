@@ -78,3 +78,11 @@ export async function unbuyItem(id) {
         
     return checkError(response);
 }
+
+export async function deleteAllItems() {
+    const response = await client
+        .from('list')
+        .delete();
+
+    return checkError(response);
+}

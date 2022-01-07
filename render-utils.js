@@ -9,6 +9,5 @@ export function renderItem(item) {
     }
 
     listItem.append();
-
     return listItem;
 }

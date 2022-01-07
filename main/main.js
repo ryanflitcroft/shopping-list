@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { buyItem, checkAuth, createItem, getItems, logout, unbuyItem } from '../fetch-utils.js';
+import { buyItem, checkAuth, createItem, deleteAllItems, getItems, logout, unbuyItem } from '../fetch-utils.js';
 import { renderItem } from '../render-utils.js';
 
 checkAuth();
@@ -41,8 +41,10 @@ listForm.addEventListener('submit', async(e) => {
     displayListItems();
 });
 
-deleteButton.addEventListener('click', () => {
-
+deleteButton.addEventListener('click', async() => {
+    await deleteAllItems();
+    await displayListItems();
+    console.log(await getItems());
 });
 
 async function displayListItems() {
@@ -52,6 +54,8 @@ async function displayListItems() {
 
     if (items.length) {
         deleteButton.classList.remove('hidden');
+    } else {
+        deleteButton.classList.add('hidden');
     }
 
     for (let item of items) {
@@ -66,7 +70,6 @@ async function displayListItems() {
                 await unbuyItem(item.id);
             }
             displayListItems();
-        });
-        
+        });   
     }   
 }
