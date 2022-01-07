@@ -51,6 +51,9 @@ async function displayListItems() {
         deleteButton.classList.remove('hidden');
     } else {
         deleteButton.classList.add('hidden');
+        const emptyList = document.createElement('span');
+        emptyList.textContent = 'Your list is pretty empty!';
+        itemList.append(emptyList);
     }
 
     for (let item of items) {
